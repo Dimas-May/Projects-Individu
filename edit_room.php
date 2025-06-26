@@ -100,6 +100,10 @@ if (isset($_POST['update'])) { //
                 <input type="text" class="form-control" id="kode_ruangan" name="kode_ruangan" value="<?= htmlspecialchars($room['kode_ruangan']) ?>" required>
             </div>
             <div class="mb-3">
+                <label for="nama_ruangan" class="form-label">Nama Ruangan:</label>
+                <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Contoh: Ruang Teori 101" required>
+            </div>
+            <div class="mb-3">
                 <label for="kapasitas" class="form-label">Kapasitas:</label>
                 <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1" value="<?= $room['kapasitas'] ?>" required>
             </div>
