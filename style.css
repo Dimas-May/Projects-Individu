@@ -1,0 +1,615 @@
+/* style.css */
+
+/* --- General & Base Styles --- */
+body {
+  font-family: "Inter", sans-serif; /* Menggunakan font Inter untuk tampilan modern */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+  background-color: #f0f2f5; /* Background umum yang terang untuk semua halaman */
+}
+
+/* Konsolidasi gaya container umum untuk semua halaman kelola */
+.container {
+  max-width: 900px; /* Lebar default container untuk halaman kelola */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul H2 umum untuk semua halaman kelola (di dalam container) */
+h2 {
+  color: #007bff;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Judul H3 umum */
+h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* --- Login Page Styles --- */
+body.login-page {
+  display: flex; /* Menggunakan Flexbox untuk layout split */
+  min-height: 100vh;
+  position: relative;
+  background-color: #f5f5f5; /* Latar belakang spesifik untuk halaman login */
+}
+
+.login-left-panel {
+  flex: 1; /* Mengambil setengah lebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.login-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.university-tagline {
+  color: #555;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.container.login {
+  background-color: #ffffff;
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Form Input dan Tombol Umum (untuk halaman login & kelola) --- */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="time"],
+select.form-control, /* Menargetkan class Bootstrap */
+select.form-select /* Menargetkan class Bootstrap */ {
+  width: 100%; /* Lebar penuh */
+  padding: 14px 12px;
+  margin: 10px 0; /* Margin atas-bawah */
+  border: 1px solid #b0b0b0;
+  border-radius: 8px;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="time"]:focus,
+select.form-control:focus,
+select.form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+/* Tombol submit di halaman login */
+input[type="submit"][name="submit"] {
+  background-color: #3498db;
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+input[type="submit"][name="submit"]:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* --- Message Styles (Error/Success) --- */
+.error,
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.success,
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px 20px;
+  border: 1px solid #badbcc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Right Panel (Login Page) --- */
+.login-right-panel {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #4a69bd;
+  overflow: hidden;
+}
+
+.right-panel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.sliding-text-overlay {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.sliding-text {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* --- Responsive Design for Login Page --- */
+@media (max-width: 768px) {
+  body.login-page {
+    flex-direction: column;
+  }
+
+  .login-left-panel,
+  .login-right-panel {
+    flex: none;
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .login-logo {
+    max-width: 150px;
+  }
+
+  .university-tagline {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+
+  .container.login {
+    max-width: 90%;
+    padding: 30px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"] {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  .sliding-text {
+    font-size: 1.3em;
+    padding: 0 20px;
+  }
+
+  .sliding-text-overlay {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+/* --- Dashboard Specific Styles --- */
+body.dashboard-page {
+  background-color: #f0f2f5;
+}
+
+/* Perbaikan untuk Navbar Brand dan Navbar Text */
+.navbar-brand {
+  display: flex; /* Menggunakan flexbox untuk alignment item di dalamnya */
+  align-items: center; /* Memusatkan item secara vertikal */
+  padding-top: 0.3125rem; /* Default Bootstrap padding-top */
+  padding-bottom: 0.3125rem; /* Default Bootstrap padding-bottom */
+  margin-right: 1rem; /* Default Bootstrap margin-right */
+}
+
+.navbar-brand img {
+  margin-right: 8px; /* Memberi sedikit jarak antara logo dan teks */
+}
+
+.navbar-text {
+  display: flex; /* Menggunakan flexbox agar teks bisa di-align */
+  align-items: center; /* Memastikan teks terpusat secara vertikal dengan elemen lain di nav */
+  height: 100%; /* Memastikan span mengambil tinggi penuh dari navbar */
+  margin-right: 1rem !important; /* Jarak dari logout, pakai important jika perlu override Bootstrap */
+  white-space: nowrap; /* Mencegah teks memisahkan baris jika terlalu panjang */
+}
+
+.dashboard-main-content {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center;
+  padding: 40px 0;
+  text-align: center; /* Untuk menengahkan teks di dalamnya */
+}
+
+/* Menyesuaikan .row di dalam .dashboard-main-content untuk fleksibilitas pemusatan */
+.dashboard-main-content .row.justify-content-center {
+  width: 1000%; /* Pastikan baris mengisi lebar parent-nya */
+}
+
+.dashboard-grid-area {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px; /* Tetap 15px untuk card container utama */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  max-width: 9000px;
+  width: 100%;
+  justify-items: center; /* Memusatkan item di dalam grid sel */
+  align-items: center; /* Memusatkan secara vertikal di dalam grid sel */
+}
+
+/* Gaya untuk kartu di dashboard */
+.dashboard-card-v2 {
+  height: 180px;
+  background-color: #ffffff;
+  /* border-radius yang lebih besar dan sedikit "squircle" */
+  border-radius: 50px; /* Lebih besar dari 15px */
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.08); /* Shadow lebih halus */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  padding: 65px;
+  width: 100%; /* Pastikan kartu mengisi lebar kolom gridnya */
+  max-width: 2000px; /* Batasi lebar maksimum kartu individu */
+}
+
+.dashboard-card-v2:hover {
+  transform: translateY(-5px); /* Sedikit naik */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih jelas saat hover */
+  text-decoration: none;
+  color: #333;
+}
+
+/* Gaya untuk ikon di dalam kartu dashboard */
+.icon-v2 {
+  font-size: 4rem; /* Ukuran ikon lebih besar, agar proporsional */
+  color: #007bff; /* Warna biru solid seperti di gambar */
+  margin-bottom: 8px; /* Jarak ikon ke teks lebih sedikit */
+  transition: color 0.2s ease-in-out;
+  padding: 5px; /* Berikan sedikit padding */
+  background-color: transparent;
+  border-radius: 50%; /* Untuk efek lingkaran jika diperlukan, tapi gambar terlihat squircle */
+}
+
+.dashboard-card-v2:hover .icon-v2 {
+  color: #0056b3; /* Warna biru lebih gelap saat hover */
+}
+
+/* Gaya untuk judul di dalam kartu dashboard */
+.dashboard-card-v2 h5 {
+  font-weight: 500; /* Sedikit lebih tipis */
+  font-size: 1em; /* Ukuran teks lebih kecil */
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.3;
+  color: #333;
+}
+
+/* Responsive adjustment for dashboard grid */
+@media (max-width: 768px) {
+  .dashboard-grid-area {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(120px, 1fr)
+    ); /* Kolom lebih kecil untuk layar kecil */
+    gap: 15px;
+    padding: 15px;
+  }
+  .dashboard-card-v2 {
+    height: 120px; /* Tinggi kartu lebih kecil di layar kecil */
+    max-width: 140px; /* Batasi lebar kartu individu lebih kecil */
+  }
+  .icon-v2 {
+    font-size: 2.8rem; /* Ikon lebih kecil di layar kecil */
+    margin-bottom: 5px;
+  }
+  .dashboard-card-v2 h5 {
+    font-size: 0.8em; /* Ukuran teks lebih kecil di layar kecil */
+  }
+}
+
+/* --- CRUD Pages Specific Styles (Applies to forms and tables) --- */
+body.crud-page {
+  background-color: #f0f2f5;
+}
+
+.page-header-crud {
+  background-color: #007bff;
+  color: white;
+  padding: 25px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 0;
+}
+
+.page-header-crud h2 {
+  color: white;
+  margin-bottom: 0;
+}
+
+.page-header-crud .header-icon {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.crud-page .container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+form input[type="submit"],
+form button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: auto;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+form input[type="submit"]:hover,
+form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.cancel-btn {
+  display: inline-block;
+  text-align: center;
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Gaya Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+table a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.2s ease;
+}
+
+table a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* --- time_slots.php specific styles --- */
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-inline label {
+  font-weight: bold;
+  color: #555;
+}
+
+/* --- view_schedule.php specific styles --- */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  text-align: center;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.schedule-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.schedule-table td {
+  background-color: #ffffff;
+}
+
+.schedule-table tr:nth-child(even) td {
+  background-color: #fdfdfd;
+}
+
+.schedule-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.schedule-item {
+  background-color: #e9f5ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 0.85em;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.schedule-item:last-child {
+  margin-bottom: 0;
+}
+
+.filter-form {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-form label {
+  font-weight: bold;
+  color: #444;
+}
+
+.filter-form select {
+  width: auto;
+  min-width: 150px;
+  margin: 0;
+}
+
+.filter-form input[type="submit"],
+.filter-form .btn {
+  width: auto;
+  padding: 10px 20px;
+  margin: 0;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+.filter-form input[type="submit"]:hover,
+.filter-form .btn:hover {
+  background-color: #0056b3;
+}
